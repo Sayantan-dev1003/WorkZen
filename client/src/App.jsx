@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Login from './pages/Auth/Login'
@@ -8,6 +8,7 @@ import RoleProtectedRoute from './components/layout/RoleProtectedRoute'
 import Navbar from './components/layout/Navbar'
 import Sidebar from './components/layout/Sidebar'
 import { SidebarProvider, useSidebar } from './context/SidebarContext'
+import { useAuth } from './context/AuthContext'
 
 // Admin imports
 import * as Admin from './pages/Admin'
@@ -21,22 +22,42 @@ import * as PayrollOfficer from './pages/PayrollOfficer'
 /* --------------------------- Dashboard Layout --------------------------- */
 const DashboardLayout = ({ children, Sidebar: SidebarComponent = Sidebar }) => {
   const { isCollapsed } = useSidebar()
+  const { user } = useAuth()
 
   const marginLeft = isCollapsed ? 'ml-20' : 'ml-64'
+  
+  // Get scrollbar class based on user role
+  const getScrollbarClass = () => {
+    if (!user || !user.role) return 'scrollbar-admin'
+    
+    const role = user.role.toLowerCase()
+    switch (role) {
+      case 'admin':
+        return 'scrollbar-admin'
+      case 'employee':
+        return 'scrollbar-employee'
+      case 'hr':
+        return 'scrollbar-hr'
+      case 'payrollofficer':
+        return 'scrollbar-payroll'
+      default:
+        return 'scrollbar-admin'
+    }
+  }
 
   return (
-    <div className="min-h-screen flex bg-white relative overflow-hidden">
+    <div className={`min-h-screen flex bg-white relative overflow-hidden ${getScrollbarClass()}`}>
       {/* Sidebar */}
       <SidebarComponent />
 
       {/* Main Area */}
-      <div className={`flex-1 ${marginLeft} transition-all duration-300 relative z-10`}>
+      <div className={`flex-1 ${marginLeft} transition-all duration-300 relative z-10 ${getScrollbarClass()}`}>
         <Navbar />
         <motion.main
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-16 p-6"
+          className={`mt-16 p-6 ${getScrollbarClass()}`}
         >
           {children}
         </motion.main>
@@ -69,6 +90,44 @@ const SidebarLayout = ({ children, Sidebar: SidebarComponent = Sidebar }) => (
 
 /* ------------------------------ App Routes ------------------------------ */
 export default function App() {
+  const { user } = useAuth()
+
+  // Apply role-based scrollbar styling to document root
+  useEffect(() => {
+    // Remove all scrollbar classes from html and body
+    const rootElements = [document.documentElement, document.body]
+    rootElements.forEach(el => {
+      el.classList.remove('scrollbar-admin', 'scrollbar-employee', 'scrollbar-hr', 'scrollbar-payroll')
+    })
+    
+    if (user && user.role) {
+      const role = user.role.toLowerCase()
+      let scrollbarClass = ''
+      
+      switch (role) {
+        case 'admin':
+          scrollbarClass = 'scrollbar-admin'
+          break
+        case 'employee':
+          scrollbarClass = 'scrollbar-employee'
+          break
+        case 'hr':
+          scrollbarClass = 'scrollbar-hr'
+          break
+        case 'payrollofficer':
+          scrollbarClass = 'scrollbar-payroll'
+          break
+        default:
+          scrollbarClass = 'scrollbar-admin'
+      }
+      
+      // Apply to both html and body for maximum compatibility
+      rootElements.forEach(el => {
+        el.classList.add(scrollbarClass)
+      })
+    }
+  }, [user])
+
   return (
     <Routes>
       {/* Public Routes */}

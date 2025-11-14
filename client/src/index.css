@@ -13,7 +13,7 @@
 }
 
 @layer components {
-  /* Custom scrollbar styles */
+  /* Custom scrollbar styles - Default */
   .scrollbar-thin::-webkit-scrollbar {
     @apply w-2 h-2;
   }
@@ -28,6 +28,108 @@
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     @apply bg-slate-500;
+  }
+
+  /* Role-based scrollbar styles */
+  
+  /* Admin - Blue scrollbar */
+  .scrollbar-admin::-webkit-scrollbar,
+  .scrollbar-admin *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-admin::-webkit-scrollbar-track,
+  .scrollbar-admin *::-webkit-scrollbar-track {
+    background: #dbeafe;
+    border-radius: 10px;
+  }
+
+  .scrollbar-admin::-webkit-scrollbar-thumb,
+  .scrollbar-admin *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6 0%, #4f46e5 100%);
+    border-radius: 10px;
+    border: 2px solid #dbeafe;
+  }
+
+  .scrollbar-admin::-webkit-scrollbar-thumb:hover,
+  .scrollbar-admin *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb 0%, #4338ca 100%);
+  }
+
+  /* Employee - Purple scrollbar */
+  .scrollbar-employee::-webkit-scrollbar,
+  .scrollbar-employee *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-employee::-webkit-scrollbar-track,
+  .scrollbar-employee *::-webkit-scrollbar-track {
+    background: #f3e8ff;
+    border-radius: 10px;
+  }
+
+  .scrollbar-employee::-webkit-scrollbar-thumb,
+  .scrollbar-employee *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #a855f7 0%, #7c3aed 100%);
+    border-radius: 10px;
+    border: 2px solid #f3e8ff;
+  }
+
+  .scrollbar-employee::-webkit-scrollbar-thumb:hover,
+  .scrollbar-employee *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #9333ea 0%, #6d28d9 100%);
+  }
+
+  /* HR - Green scrollbar */
+  .scrollbar-hr::-webkit-scrollbar,
+  .scrollbar-hr *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-hr::-webkit-scrollbar-track,
+  .scrollbar-hr *::-webkit-scrollbar-track {
+    background: #d1fae5;
+    border-radius: 10px;
+  }
+
+  .scrollbar-hr::-webkit-scrollbar-thumb,
+  .scrollbar-hr *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+    border-radius: 10px;
+    border: 2px solid #d1fae5;
+  }
+
+  .scrollbar-hr::-webkit-scrollbar-thumb:hover,
+  .scrollbar-hr *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #059669 0%, #047857 100%);
+  }
+
+  /* Payroll Officer - Orange scrollbar */
+  .scrollbar-payroll::-webkit-scrollbar,
+  .scrollbar-payroll *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-payroll::-webkit-scrollbar-track,
+  .scrollbar-payroll *::-webkit-scrollbar-track {
+    background: #fed7aa;
+    border-radius: 10px;
+  }
+
+  .scrollbar-payroll::-webkit-scrollbar-thumb,
+  .scrollbar-payroll *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
+    border-radius: 10px;
+    border: 2px solid #fed7aa;
+  }
+
+  .scrollbar-payroll::-webkit-scrollbar-thumb:hover,
+  .scrollbar-payroll *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ea580c 0%, #c2410c 100%);
   }
 }
 

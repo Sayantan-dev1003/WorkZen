@@ -197,7 +197,7 @@ const Navbar = () => {
   console.log('Navbar render - has checkIn:', userAttendanceStatus?.checkIn)
 
   return (
-    <header className=" bg-white fixed top-0 right-0 left-0 z-30 flex items-center  w-full justify-between px-6 py-2">
+    <header className="bg-white fixed top-0 right-0 left-0 z-30 flex items-center w-full justify-between px-6 py-2 shadow-sm">
       {/* Left side - Title */}
       <div className="flex items-center">
       </div>
@@ -303,7 +303,7 @@ const Navbar = () => {
 
           {/* Dropdown Menu */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2">
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
               <button
                 onClick={handleProfileClick}
                 className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 flex items-center gap-2"

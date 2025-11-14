@@ -143,7 +143,7 @@ class AttendanceService {
   }
 
   /**
-   * Employee check-in
+   * Employee check-in with auto-marking based on time
    */
   async checkIn(empId, userId) {
     // Check if employee exists
@@ -160,19 +160,33 @@ class AttendanceService {
         throw new Error('You have already checked in today');
       }
       // Update existing record with check-in
-      existingAttendance.checkIn = new Date();
-      existingAttendance.status = 'present';
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      
+      // Auto-mark: 9:00 AM (9:00) to 11:00 AM (11:00) = Present, else Absent
+      const isOnTime = (hours === 9 || hours === 10 || (hours === 11 && minutes === 0));
+      
+      existingAttendance.checkIn = now;
+      existingAttendance.status = isOnTime ? 'present' : 'absent';
       await existingAttendance.save();
       return existingAttendance;
     }
 
-    // Create new attendance record
+    // Create new attendance record with auto-marking
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    
+    // Auto-mark: 9:00 AM (9:00) to 11:00 AM (11:00) = Present, else Absent
+    const isOnTime = (hours === 9 || hours === 10 || (hours === 11 && minutes === 0));
+
     const attendance = await Attendance.create({
       userId,
       empId,
       date: new Date(),
-      checkIn: new Date(),
-      status: 'present'
+      checkIn: now,
+      status: isOnTime ? 'present' : 'absent'
     });
 
     return await this.getTodayAttendance(empId);
@@ -226,7 +240,7 @@ class AttendanceService {
   }
 
   /**
-   * User check-in (for Admin, HR, PayrollOfficer, Employee)
+   * User check-in (for Admin, HR, PayrollOfficer, Employee) with auto-marking based on time
    */
   async userCheckIn(userId) {
     const User = require('../models/User');
@@ -251,19 +265,33 @@ class AttendanceService {
         throw new Error('You have already checked in today');
       }
       // Update existing record with check-in
-      existingAttendance.checkIn = new Date();
-      existingAttendance.status = 'present';
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      
+      // Auto-mark: 9:00 AM (9:00) to 11:00 AM (11:00) = Present, else Absent
+      const isOnTime = (hours === 9 || hours === 10 || (hours === 11 && minutes === 0));
+      
+      existingAttendance.checkIn = now;
+      existingAttendance.status = isOnTime ? 'present' : 'absent';
       await existingAttendance.save();
       console.log('userCheckIn - updated existing:', existingAttendance);
       return existingAttendance;
     }
 
-    // Create new attendance record
+    // Create new attendance record with auto-marking
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    
+    // Auto-mark: 9:00 AM (9:00) to 11:00 AM (11:00) = Present, else Absent
+    const isOnTime = (hours === 9 || hours === 10 || (hours === 11 && minutes === 0));
+
     const attendance = await Attendance.create({
       userId,
       date: new Date(),
-      checkIn: new Date(),
-      status: 'present'
+      checkIn: now,
+      status: isOnTime ? 'present' : 'absent'
     });
 
     console.log('userCheckIn - created new:', attendance);

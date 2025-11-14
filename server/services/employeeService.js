@@ -69,6 +69,11 @@ class EmployeeService {
       const empObj = emp.toObject();
       const empId = emp._id.toString();
       
+      // Add last attendance date if attendance record exists
+      if (attendanceMap[empId]) {
+        empObj.lastAttendanceDate = attendanceMap[empId].date;
+      }
+      
       // Check if on approved leave
       if (leaveMap[empId]) {
         empObj.status = 'On Leave';
