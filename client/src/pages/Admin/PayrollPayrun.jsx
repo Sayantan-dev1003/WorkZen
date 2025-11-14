@@ -88,28 +88,28 @@ export default function PayrollPayrun() {
     <div className="space-y-6">
       {/* Heading */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-500 rounded-xl p-6 text-white shadow-lg">
-        <h2 className="text-2xl font-bold">{payPeriod}</h2>
-        <p className="text-blue-100 mt-1">Review and process employee payroll</p>
+        <h2 className="text-xl font-bold">{payPeriod}</h2>
+        <p className="text-sm text-blue-100 mt-1">Review and process employee payroll</p>
       </div>
 
       {/* Summary Cards */}
       {totals && (
         <div className="grid grid-cols-4 gap-4">
           <div className="bg-white rounded-lg p-4 shadow-md border border-slate-200">
-            <p className="text-sm text-slate-600 mb-1">Total Employer Cost</p>
-            <p className="text-xl font-bold text-slate-800">{formatCurrency(totals.employerCost)}</p>
+            <p className="text-xs text-slate-600 mb-1">Total Employer Cost</p>
+            <p className="text-base font-bold text-slate-800">{formatCurrency(totals.employerCost)}</p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-md border border-slate-200">
-            <p className="text-sm text-slate-600 mb-1">Total Gross</p>
-            <p className="text-xl font-bold text-green-600">{formatCurrency(totals.grossWage)}</p>
+            <p className="text-xs text-slate-600 mb-1">Total Gross</p>
+            <p className="text-base font-bold text-green-600">{formatCurrency(totals.grossWage)}</p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-md border border-slate-200">
-            <p className="text-sm text-slate-600 mb-1">Total Net</p>
-            <p className="text-xl font-bold text-blue-600">{formatCurrency(totals.netWage)}</p>
+            <p className="text-xs text-slate-600 mb-1">Total Net</p>
+            <p className="text-base font-bold text-blue-600">{formatCurrency(totals.netWage)}</p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-md border border-slate-200">
-            <p className="text-sm text-slate-600 mb-1">Employees</p>
-            <p className="text-xl font-bold text-slate-800">{payrunData.length}</p>
+            <p className="text-xs text-slate-600 mb-1">Employees</p>
+            <p className="text-base font-bold text-slate-800">{payrunData.length}</p>
           </div>
         </div>
       )}

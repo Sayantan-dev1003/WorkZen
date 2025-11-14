@@ -46,7 +46,7 @@ export default function AdminDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-800">Admin Dashboard</h1>
-          <p className="text-slate-600 mt-1">System overview and management</p>
+          <p className="text-base text-slate-600 mt-1">System overview and management</p>
         </div>
         <div className="text-right">
           <p className="text-sm text-slate-500">
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
           <div className="h-64 flex items-center justify-center bg-slate-50 rounded-lg border-2 border-dashed border-slate-300">
             <div className="text-center">
               <span className="text-6xl">📊</span>
-              <p className="text-slate-500 mt-2">Admin Analytics Dashboard</p>
+              <p className="text-sm text-slate-500 mt-2">Admin Analytics Dashboard</p>
               <p className="text-xs text-slate-400 mt-1">
                 Full system metrics and insights
               </p>

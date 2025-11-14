@@ -287,7 +287,7 @@ export default function MyProfile() {
                 </div>
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
                   {employee?.name || user?.name || 'Admin User'}
                 </h2>
                 <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
@@ -350,7 +350,7 @@ export default function MyProfile() {
             <div className="col-span-7">
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-100 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-semibold text-blue-700">About Me</h3>
+                  <h3 className="text-base font-semibold text-blue-700">About Me</h3>
                   {!editingAbout ? (
                     <button
                       onClick={() => setEditingAbout(true)}
@@ -399,7 +399,7 @@ export default function MyProfile() {
             <div className="col-span-5 space-y-6">
               {/* Skills */}
               <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-semibold text-blue-700 mb-4">Skills</h3>
+                <h3 className="text-base font-semibold text-blue-700 mb-4">Skills</h3>
                 <div className="space-y-2 mb-4">
                   {skills.map((skill, index) => (
                     <div
@@ -436,7 +436,7 @@ export default function MyProfile() {
 
               {/* Certifications */}
               <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-semibold text-blue-700 mb-4">Certifications</h3>
+                <h3 className="text-base font-semibold text-blue-700 mb-4">Certifications</h3>
                 <div className="space-y-2 mb-4">
                   {certifications.map((cert, index) => (
                     <div
@@ -478,7 +478,7 @@ export default function MyProfile() {
         {activeTab === 'private' && (
           <div className="space-y-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-2xl font-semibold text-gray-800">Private Information</h3>
+              <h3 className="text-xl font-semibold text-gray-800">Private Information</h3>
               {!editingPrivateInfo ? (
                 <button
                   onClick={() => setEditingPrivateInfo(true)}
@@ -621,7 +621,7 @@ export default function MyProfile() {
 
               {/* Right Column - Bank Details */}
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                <h4 className="text-lg font-semibold text-blue-700 mb-4">Bank Details</h4>
+                <h4 className="text-base font-semibold text-blue-700 mb-4">Bank Details</h4>
                 <div className="space-y-4">
                   {/* Account Number */}
                   <div>
@@ -720,7 +720,7 @@ export default function MyProfile() {
 
         {activeTab === 'security' && (
           <div className="bg-white rounded-xl shadow-sm p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-8">Change Password</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-8">Change Password</h3>
 
             <form onSubmit={handlePasswordChange} className="space-y-6 max-w-2xl">
               {/* Login ID (Read-only) */}

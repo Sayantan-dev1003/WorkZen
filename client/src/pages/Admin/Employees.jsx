@@ -153,8 +153,8 @@ export default function Employees() {
                 <FaUsers className="text-4xl text-white" />
               </div>
               <div>
-                <h1 className="text-4xl font-bold mb-1">Employees</h1>
-                <p className="text-blue-100 text-lg">Manage all employee records and profiles</p>
+                <h1 className="text-3xl font-bold mb-1">Employees</h1>
+                <p className="text-base text-blue-100">Manage all employee records and profiles</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -165,7 +165,7 @@ export default function Employees() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <div>
-                    <p className="text-sm py-1 font-bold text-white">
+                    <p className="text-xs py-1 font-bold text-white">
                       {new Date().toLocaleDateString('en-US', { 
                         weekday: 'short',
                         year: 'numeric', 
@@ -262,8 +262,8 @@ export default function Employees() {
                 </svg>
               </div>
               <div>
-                <h2 className="text-lg font-bold text-gray-800">Search & Filter</h2>
-                <p className="text-xs text-gray-600">Find employees quickly</p>
+                <h2 className="text-xl font-bold text-gray-800">Search & Filter</h2>
+                <p className="text-sm text-gray-600">Find employees quickly</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -460,7 +460,7 @@ export default function Employees() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <FaUsers className="text-blue-600 text-xl" />
+                <FaUsers className="text-blue-600 text-lg" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
@@ -612,11 +612,11 @@ export default function Employees() {
                   'bg-orange-500'
                 }`}></div>
               </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                  {selectedEmployee.name}
-                </h3>
-                <p className="text-base text-gray-600 font-medium mb-3">{selectedEmployee.designation}</p>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-gray-900 mb-1">
+                {selectedEmployee.name}
+              </h3>
+              <p className="text-sm text-gray-600 font-medium mb-3">{selectedEmployee.designation}</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
                     {selectedEmployee.department}
@@ -636,7 +636,7 @@ export default function Employees() {
 
             {/* Contact Information */}
             <div>
-              <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <h4 className="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -656,7 +656,7 @@ export default function Employees() {
 
             {/* Additional Information */}
             <div>
-              <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <h4 className="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
